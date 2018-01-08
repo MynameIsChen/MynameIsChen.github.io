@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="description" content="其中出生前的return可自定义，详情见代码：    public static String getBirthDay(long birthTime, long nTime) {     //是否为出生前     boolean gestation = false;     if (birthTime &amp;gt; nTime) {         gestation = true;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="控制键盘的隐藏与现实">
-<meta property="og:url" content="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/index.html">
+<meta property="og:title" content="生日计算（距某个时间的年月日，前&#x2F;后）">
+<meta property="og:url" content="http://yoursite.com/2018/01/08/生日计算（距某个时间的年月日，前-后）/index.html">
 <meta property="og:site_name" content="Chenxianglin&#39; Blog">
-<meta property="og:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta property="og:description" content="其中出生前的return可自定义，详情见代码：    public static String getBirthDay(long birthTime, long nTime) {     //是否为出生前     boolean gestation = false;     if (birthTime &amp;gt; nTime) {         gestation = true;">
 <meta property="og:locale" content="zh-Cn">
-<meta property="og:updated_time" content="2018-01-08T09:26:11.131Z">
+<meta property="og:updated_time" content="2018-01-08T09:25:20.156Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="控制键盘的隐藏与现实">
-<meta name="twitter:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="twitter:title" content="生日计算（距某个时间的年月日，前&#x2F;后）">
+<meta name="twitter:description" content="其中出生前的return可自定义，详情见代码：    public static String getBirthDay(long birthTime, long nTime) {     //是否为出生前     boolean gestation = false;     if (birthTime &amp;gt; nTime) {         gestation = true;">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/08/生日计算（距某个时间的年月日，前-后）/"/>
 
 
 
 
 
-  <title>控制键盘的隐藏与现实 | Chenxianglin' Blog</title>
+  <title>生日计算（距某个时间的年月日，前/后） | Chenxianglin' Blog</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/生日计算（距某个时间的年月日，前-后）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ken">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">控制键盘的隐藏与现实</h1>
+          <h1 class="post-title" itemprop="name headline">生日计算（距某个时间的年月日，前/后）</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:04:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:24:37+08:00">
                 2018-01-08
               </time>
             
@@ -299,21 +299,111 @@
       
 
       
-        <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-</code></pre><p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
+        <p>其中出生前的return可自定义，详情见代码：<br>    public static String getBirthDay(long birthTime, long nTime) {</p>
+<pre><code>    //是否为出生前
+    boolean gestation = false;
+    if (birthTime &gt; nTime) {
+        gestation = true;
+        long temp = birthTime;
+        birthTime = nTime;
+        nTime = temp;
+    }
 
-imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
-</code></pre><p>3、调用隐藏系统默认的输入法</p>
-<pre><code>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)
-</code></pre><p>4、获取输入法打开的状态</p>
-<pre><code>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
-</code></pre><p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
+    //收集生日
+    String birth = &quot;&quot;;
+    //某个日子的年月日
+    Date n = new Date(nTime);
+    int nDay = n.getDate();
+    int nMonth = n.getMonth();
+    int nYear = n.getYear();
 
+    //生日的年月日
+    Date b = new Date(birthTime);
+    int bDay = b.getDate();
+    int bMonth = b.getMonth();
+    int bYear = b.getYear();
+
+    //生日月的天数，计算是否满月
+    int mothDay = 31;
+    if (bMonth == 2) {
+        if (isRunYear(bYear)) {
+            mothDay = 29;
+        } else {
+            mothDay = 28;
+        }
+    } else if (bMonth == 4 || bMonth == 6 || bMonth == 9 || bMonth == 11) {
+        mothDay = 30;
+    }
+
+    //满岁：当前年大于出生年，且当前月大于出生月，或当前月等于且出生月当前日大于等于出生日，否则月份为：当前年-出生年-1
+    int year = 0;
+    if (nYear &gt; bYear) {
+        if (nMonth &gt; bMonth || (nMonth == bMonth &amp;&amp; nDay &gt;= bDay)) {
+            year = nYear - bYear;
+        } else {
+            year = nYear - bYear - 1;
+        }
+    }
+    if (year &gt; 0) {
+        if (!gestation) {
+            birth += (year + &quot;岁&quot;);
+        } else {
+            return &quot;宝宝出生&quot; + year + &quot;年前&quot;;
+        }
+    }
+
+    //满月：当前月大于出生月；且当前日大于等于出生日，否则月份为：当前月-出生月-1
+    int month = 0;
+    if (nMonth &gt; bMonth) {
+        if (nDay &gt;= bDay) {
+            month = nMonth - bMonth;
+        } else {
+            month = nMonth - bMonth - 1;
+        }
+    }
+    if (nYear &gt; bYear &amp;&amp; month &lt; 0) {
+        month += 12;
+    }
+    if (month &gt; 0) {
+        if (!gestation) {
+            birth += (month + &quot;个月&quot;);
+        } else {
+            return &quot;宝宝出生&quot; + month + &quot;个月前&quot;;
+        }
+    }
+
+    int day = 0;
+    if (nDay &gt;= bDay) {
+        if (nYear &gt; bYear || (nYear == bYear &amp;&amp; nMonth &gt;= bMonth)) {
+            day += (nDay - bDay);
+            if (!gestation) {
+                day += 1;
+            }
+        }
+    } else {
+        if (nMonth &gt; bMonth || nYear &gt; bYear) {
+            day += (mothDay - bDay + nDay);
+            if (!gestation) {
+                day += 1;
+            }
+        }
+    }
+
+    if (day &gt; 0) {
+        if (!gestation) {
+            birth += (day + &quot;天&quot;);
+        } else {
+            return &quot;宝宝出生&quot; + day + &quot;天前&quot;;
+        }
+    }
+
+    return birth;
+}
+
+public static boolean isRunYear(int year) {
+    return ((year % 4 == 0) &amp;&amp; (year % 100 != 0)) || (year % 400 == 0);
+}
+</code></pre>
       
     </div>
     
@@ -337,8 +427,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/这是一个美好的开始/" rel="next" title="这是一个美好的开始">
-                <i class="fa fa-chevron-left"></i> 这是一个美好的开始
+              <a href="/2018/01/08/Jackson解析toString-writeValueAsString-无响应/" rel="next" title="Jackson解析toString(writeValueAsString)无响应">
+                <i class="fa fa-chevron-left"></i> Jackson解析toString(writeValueAsString)无响应
               </a>
             
           </div>
@@ -346,10 +436,6 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/08/时间转换/" rel="prev" title="时间转换">
-                时间转换 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="description" content="情况:这个提示不影响编译，程序也正常运行，但是如果你直接点击该类或者文件找不到该文件，如果要打开的话，必须在程序找到该Java文件然后双击才能打开。 结论:是缓存的问题。 android studio 的解决方法: 方法1.”Build “ -&amp;gt; “Clean project” 方法 2.”Tools” -&amp;gt; “Android” -&amp;gt; “Sync Project with Gra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="控制键盘的隐藏与现实">
-<meta property="og:url" content="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/index.html">
+<meta property="og:title" content="cannot resolve symbol &#39;XXXX&#39;">
+<meta property="og:url" content="http://yoursite.com/2018/01/08/cannot-resolve-symbol/index.html">
 <meta property="og:site_name" content="Chenxianglin&#39; Blog">
-<meta property="og:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta property="og:description" content="情况:这个提示不影响编译，程序也正常运行，但是如果你直接点击该类或者文件找不到该文件，如果要打开的话，必须在程序找到该Java文件然后双击才能打开。 结论:是缓存的问题。 android studio 的解决方法: 方法1.”Build “ -&amp;gt; “Clean project” 方法 2.”Tools” -&amp;gt; “Android” -&amp;gt; “Sync Project with Gra">
 <meta property="og:locale" content="zh-Cn">
-<meta property="og:updated_time" content="2018-01-08T09:26:11.131Z">
+<meta property="og:updated_time" content="2018-01-08T09:17:13.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="控制键盘的隐藏与现实">
-<meta name="twitter:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="twitter:title" content="cannot resolve symbol &#39;XXXX&#39;">
+<meta name="twitter:description" content="情况:这个提示不影响编译，程序也正常运行，但是如果你直接点击该类或者文件找不到该文件，如果要打开的话，必须在程序找到该Java文件然后双击才能打开。 结论:是缓存的问题。 android studio 的解决方法: 方法1.”Build “ -&amp;gt; “Clean project” 方法 2.”Tools” -&amp;gt; “Android” -&amp;gt; “Sync Project with Gra">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/08/cannot-resolve-symbol/"/>
 
 
 
 
 
-  <title>控制键盘的隐藏与现实 | Chenxianglin' Blog</title>
+  <title>cannot resolve symbol 'XXXX' | Chenxianglin' Blog</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/cannot-resolve-symbol/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ken">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">控制键盘的隐藏与现实</h1>
+          <h1 class="post-title" itemprop="name headline">cannot resolve symbol 'XXXX'</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:04:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:16:41+08:00">
                 2018-01-08
               </time>
             
@@ -299,20 +299,14 @@
       
 
       
-        <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-</code></pre><p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
-
-imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
-</code></pre><p>3、调用隐藏系统默认的输入法</p>
-<pre><code>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)
-</code></pre><p>4、获取输入法打开的状态</p>
-<pre><code>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
-</code></pre><p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
+        <p>情况:这个提示不影响编译，程序也正常运行，但是如果你直接点击该类或者文件找不到该文件，如果要打开的话，必须在程序找到该Java文件然后双击才能打开。</p>
+<p>结论:是缓存的问题。</p>
+<p>android studio 的解决方法:</p>
+<p>方法1.”Build “ -&gt; “Clean project”</p>
+<p>方法 2.”Tools” -&gt; “Android” -&gt; “Sync Project with Gradle Files”</p>
+<p>方法3. updated your SDK manager.</p>
+<p>intellij idea 的解决方法：</p>
+<p>File – Invalidate Caches 然后会提示你重启intellij ，你重启后，就好了。</p>
 
       
     </div>
@@ -337,8 +331,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/这是一个美好的开始/" rel="next" title="这是一个美好的开始">
-                <i class="fa fa-chevron-left"></i> 这是一个美好的开始
+              <a href="/2018/01/08/解决默认打开浏览器的ActivityNotFoundException异常/" rel="next" title="解决默认打开浏览器的ActivityNotFoundException异常">
+                <i class="fa fa-chevron-left"></i> 解决默认打开浏览器的ActivityNotFoundException异常
               </a>
             
           </div>
@@ -347,8 +341,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/08/时间转换/" rel="prev" title="时间转换">
-                时间转换 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/08/diamond-types-are-not-supported-at-this-language-level/" rel="prev" title="diamond types are not supported at this language level">
+                diamond types are not supported at this language level <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

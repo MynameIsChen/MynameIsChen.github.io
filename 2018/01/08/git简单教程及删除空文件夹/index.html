@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="description" content="1.git简单教程： http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000 2.git删除空文件夹 http://blog.csdn.net/skykingf/article/details/44078837 使用git rm -rf dir 命令删除非空目录之后，本地还是会有空的目录存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="控制键盘的隐藏与现实">
-<meta property="og:url" content="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/index.html">
+<meta property="og:title" content="git简单教程及删除空文件夹">
+<meta property="og:url" content="http://yoursite.com/2018/01/08/git简单教程及删除空文件夹/index.html">
 <meta property="og:site_name" content="Chenxianglin&#39; Blog">
-<meta property="og:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta property="og:description" content="1.git简单教程： http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000 2.git删除空文件夹 http://blog.csdn.net/skykingf/article/details/44078837 使用git rm -rf dir 命令删除非空目录之后，本地还是会有空的目录存">
 <meta property="og:locale" content="zh-Cn">
-<meta property="og:updated_time" content="2018-01-08T09:26:11.131Z">
+<meta property="og:updated_time" content="2018-01-08T09:22:03.052Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="控制键盘的隐藏与现实">
-<meta name="twitter:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="twitter:title" content="git简单教程及删除空文件夹">
+<meta name="twitter:description" content="1.git简单教程： http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000 2.git删除空文件夹 http://blog.csdn.net/skykingf/article/details/44078837 使用git rm -rf dir 命令删除非空目录之后，本地还是会有空的目录存">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/08/git简单教程及删除空文件夹/"/>
 
 
 
 
 
-  <title>控制键盘的隐藏与现实 | Chenxianglin' Blog</title>
+  <title>git简单教程及删除空文件夹 | Chenxianglin' Blog</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/git简单教程及删除空文件夹/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ken">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">控制键盘的隐藏与现实</h1>
+          <h1 class="post-title" itemprop="name headline">git简单教程及删除空文件夹</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:04:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:21:27+08:00">
                 2018-01-08
               </time>
             
@@ -299,20 +299,13 @@
       
 
       
-        <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-</code></pre><p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
-
-imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
-</code></pre><p>3、调用隐藏系统默认的输入法</p>
-<pre><code>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)
-</code></pre><p>4、获取输入法打开的状态</p>
-<pre><code>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
-</code></pre><p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
+        <p>1.git简单教程：</p>
+<p><a href="">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></p>
+<p>2.git删除空文件夹</p>
+<p><a href="">http://blog.csdn.net/skykingf/article/details/44078837</a></p>
+<p>使用git rm -rf dir 命令删除非空目录之后，本地还是会有空的目录存在，这时候空目录已经是untracked状态了。</p>
+<p>解决办法是再删除掉untracked状态的目录，命令如下</p>
+<p>git clean -fd<br>执行以上命令后，本地的空目录就没有了。</p>
 
       
     </div>
@@ -337,8 +330,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/这是一个美好的开始/" rel="next" title="这是一个美好的开始">
-                <i class="fa fa-chevron-left"></i> 这是一个美好的开始
+              <a href="/2018/01/08/diamond-types-are-not-supported-at-this-language-level/" rel="next" title="diamond types are not supported at this language level">
+                <i class="fa fa-chevron-left"></i> diamond types are not supported at this language level
               </a>
             
           </div>
@@ -347,8 +340,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/08/时间转换/" rel="prev" title="时间转换">
-                时间转换 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/08/android-xml解析区别/" rel="prev" title="android xml解析区别">
+                android xml解析区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

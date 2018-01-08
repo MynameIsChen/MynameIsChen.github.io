@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串 1.long字符串转换成yyyy-MM-dd HH:mm:ss 格式输出 /**  * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss  * @return  */ public static String  longToStrng(){     String time=&amp;quot;125600610">
+<meta name="description" content="有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串 1.long字符串转换成yyyy-MM-dd HH:mm:ss 格式输出 /**      * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss      * @return      */     public static String  longToStrng(){         String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="时间转换">
 <meta property="og:url" content="http://yoursite.com/2018/01/08/时间转换/index.html">
 <meta property="og:site_name" content="Chenxianglin&#39; Blog">
-<meta property="og:description" content="有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串 1.long字符串转换成yyyy-MM-dd HH:mm:ss 格式输出 /**  * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss  * @return  */ public static String  longToStrng(){     String time=&amp;quot;125600610">
+<meta property="og:description" content="有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串 1.long字符串转换成yyyy-MM-dd HH:mm:ss 格式输出 /**      * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss      * @return      */     public static String  longToStrng(){         String">
 <meta property="og:locale" content="zh-Cn">
-<meta property="og:updated_time" content="2018-01-08T09:09:13.169Z">
+<meta property="og:updated_time" content="2018-01-08T09:15:51.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时间转换">
-<meta name="twitter:description" content="有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串 1.long字符串转换成yyyy-MM-dd HH:mm:ss 格式输出 /**  * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss  * @return  */ public static String  longToStrng(){     String time=&amp;quot;125600610">
+<meta name="twitter:description" content="有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串 1.long字符串转换成yyyy-MM-dd HH:mm:ss 格式输出 /**      * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss      * @return      */     public static String  longToStrng(){         String">
 
 
 
@@ -301,84 +301,92 @@
       
         <p>有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串</p>
 <p>1.long字符串转换成yyyy-MM-dd HH:mm:ss 格式输出</p>
-<p>/**</p>
-<pre><code> * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss
- * @return
- */
-public static String  longToStrng(){
-    String time=&quot;1256006105375&quot;;//long型转换成的字符串
-    Date date= new Date(Long.parseLong(time.trim()));
-    SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-    String dateString = formatter.format(date);
-    System.out.println(&quot;TIME:::&quot;+dateString);
-    return dateString;
-}
+<pre><code>/**
+     * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss
+     * @return
+     */
+    public static String  longToStrng(){
+        String time=&quot;1256006105375&quot;;//long型转换成的字符串
+        Date date= new Date(Long.parseLong(time.trim()));
+        SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        String dateString = formatter.format(date);
+        System.out.println(&quot;TIME:::&quot;+dateString);
+        return dateString;
+    }
 </code></pre><p>2.字符串转换成时间</p>
-<p>/**</p>
-<pre><code> * 将yyyy-MM-dd HH:mm:ss 时间格式字符串转化成时间
- * @return
- */
-public static Date StringToDate(){
-    String time=&quot;2009-10-21 10:35:05&quot;;//时间格式的字符串
-    SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-    Date s=null;
-    try {
-         s= formatter.parse(time);
-    } catch (ParseException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+<pre><code>/**
+     * 将yyyy-MM-dd HH:mm:ss 时间格式字符串转化成时间
+     * @return
+     */
+    public static Date StringToDate(){
+        String time=&quot;2009-10-21 10:35:05&quot;;//时间格式的字符串
+        SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        Date s=null;
+        try {
+             s= formatter.parse(time);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println(&quot;TIME:::&quot;+s);
+        return s;
     }
-    System.out.println(&quot;TIME:::&quot;+s);
-    return s;
-}
 </code></pre><p>3 取得当前系统时间 返回 yyyy-MM-dd HH:mm:ss字符串</p>
-<p>/**</p>
-<pre><code>   * 获取现在时间
-   *
-   * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
-   */
-public static String getStringDate() {
-   Date currentTime = new Date();
-   SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-   String dateString = formatter.format(currentTime);
-   System.out.println(&quot;TIME:::&quot;+dateString);
-   return dateString;
-}
-</code></pre><p>4.取得当前系统时间 返回 HH:mm:ss字符串</p>
-<p>/**</p>
-<pre><code>   * 获取时间 小时:分;秒 HH:mm:ss
-   *
-   * @return
-   */
-public static String getTimeShort() {
-   SimpleDateFormat formatter = new SimpleDateFormat(&quot;HH:mm:ss&quot;);
-   Date currentTime = new Date();
-   String dateString = formatter.format(currentTime);
-   System.out.println(&quot;TIME:::&quot;+dateString);
-   return dateString;
-}
-</code></pre><p> 5.将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出</p>
-<p>/**</p>
-<pre><code> * 将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出
- * @return
- */
-public static String strToDatestr() {
-    String ssss = &quot;20090402103531&quot;;
-    SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;);
-    SimpleDateFormat sdf2 = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-    String sss = null;
-    try {
-        sss = sdf2.format(sdf.parse(ssss));
-        System.out.println(&quot;result&quot; + sss);
-    } catch (ParseException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+<pre><code>/**
+       * 获取现在时间
+       *
+       * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
+       */
+    public static String getStringDate() {
+       Date currentTime = new Date();
+       SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+       String dateString = formatter.format(currentTime);
+       System.out.println(&quot;TIME:::&quot;+dateString);
+       return dateString;
     }
-    return sss;
-}
+</code></pre><p>4.取得当前系统时间 返回 HH:mm:ss字符串</p>
+<pre><code>/**
+       * 获取时间 小时:分;秒 HH:mm:ss
+       *
+       * @return
+       */
+    public static String getTimeShort() {
+       SimpleDateFormat formatter = new SimpleDateFormat(&quot;HH:mm:ss&quot;);
+       Date currentTime = new Date();
+       String dateString = formatter.format(currentTime);
+       System.out.println(&quot;TIME:::&quot;+dateString);
+       return dateString;
+    }
+</code></pre><p> 5.将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出</p>
+<pre><code>/**
+     * 将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出
+     * @return
+     */
+    public static String strToDatestr() {
+        String ssss = &quot;20090402103531&quot;;
+        SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;);
+        SimpleDateFormat sdf2 = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        String sss = null;
+        try {
+            sss = sdf2.format(sdf.parse(ssss));
+            System.out.println(&quot;result&quot; + sss);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return sss;
+    }
 </code></pre><p>6.将倒计时时间90179转换成”XX 天 XX小时 XX分钟 XX秒”形式输出</p>
-<p> public static String surplusLongToStrng(){<br>            long  between=90179;<br>             long day1=between/(24<em>3600);<br>           long hour1=between%(24</em>3600)/3600;<br>           long minute1=between%3600/60;<br>           long second1=between%60;<br>           System.out.println(“”+day1+”天”+hour1+”小时”+minute1+”分”+second1+”秒”);<br>           return “”+day1+”天”+hour1+”小时”+minute1+”分”+second1+”秒”;<br>      }</p>
-<p>转载出处:<a href="">http://wwwzhouhui.iteye.com/blog/513781</a></p>
+<pre><code>public static String surplusLongToStrng(){
+          long  between=90179;
+          long day1=between/(24*3600);
+          long hour1=between%(24*3600)/3600;
+          long minute1=between%3600/60;
+          long second1=between%60;
+          System.out.println(&quot;&quot;+day1+&quot;天&quot;+hour1+&quot;小时&quot;+minute1+&quot;分&quot;+second1+&quot;秒&quot;);
+          return &quot;&quot;+day1+&quot;天&quot;+hour1+&quot;小时&quot;+minute1+&quot;分&quot;+second1+&quot;秒&quot;;
+     }
+</code></pre><p>转载出处:<a href="">http://wwwzhouhui.iteye.com/blog/513781</a></p>
 
       
     </div>
@@ -487,7 +495,7 @@ public static String strToDatestr() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

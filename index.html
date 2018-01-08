@@ -232,6 +232,892 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/生日计算（距某个时间的年月日，前-后）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/08/生日计算（距某个时间的年月日，前-后）/" itemprop="url">生日计算（距某个时间的年月日，前/后）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:24:37+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>其中出生前的return可自定义，详情见代码：<br>    public static String getBirthDay(long birthTime, long nTime) {</p>
+<pre><code>    //是否为出生前
+    boolean gestation = false;
+    if (birthTime &gt; nTime) {
+        gestation = true;
+        long temp = birthTime;
+        birthTime = nTime;
+        nTime = temp;
+    }
+
+    //收集生日
+    String birth = &quot;&quot;;
+    //某个日子的年月日
+    Date n = new Date(nTime);
+    int nDay = n.getDate();
+    int nMonth = n.getMonth();
+    int nYear = n.getYear();
+
+    //生日的年月日
+    Date b = new Date(birthTime);
+    int bDay = b.getDate();
+    int bMonth = b.getMonth();
+    int bYear = b.getYear();
+
+    //生日月的天数，计算是否满月
+    int mothDay = 31;
+    if (bMonth == 2) {
+        if (isRunYear(bYear)) {
+            mothDay = 29;
+        } else {
+            mothDay = 28;
+        }
+    } else if (bMonth == 4 || bMonth == 6 || bMonth == 9 || bMonth == 11) {
+        mothDay = 30;
+    }
+
+    //满岁：当前年大于出生年，且当前月大于出生月，或当前月等于且出生月当前日大于等于出生日，否则月份为：当前年-出生年-1
+    int year = 0;
+    if (nYear &gt; bYear) {
+        if (nMonth &gt; bMonth || (nMonth == bMonth &amp;&amp; nDay &gt;= bDay)) {
+            year = nYear - bYear;
+        } else {
+            year = nYear - bYear - 1;
+        }
+    }
+    if (year &gt; 0) {
+        if (!gestation) {
+            birth += (year + &quot;岁&quot;);
+        } else {
+            return &quot;宝宝出生&quot; + year + &quot;年前&quot;;
+        }
+    }
+
+    //满月：当前月大于出生月；且当前日大于等于出生日，否则月份为：当前月-出生月-1
+    int month = 0;
+    if (nMonth &gt; bMonth) {
+        if (nDay &gt;= bDay) {
+            month = nMonth - bMonth;
+        } else {
+            month = nMonth - bMonth - 1;
+        }
+    }
+    if (nYear &gt; bYear &amp;&amp; month &lt; 0) {
+        month += 12;
+    }
+    if (month &gt; 0) {
+        if (!gestation) {
+            birth += (month + &quot;个月&quot;);
+        } else {
+            return &quot;宝宝出生&quot; + month + &quot;个月前&quot;;
+        }
+    }
+
+    int day = 0;
+    if (nDay &gt;= bDay) {
+        if (nYear &gt; bYear || (nYear == bYear &amp;&amp; nMonth &gt;= bMonth)) {
+            day += (nDay - bDay);
+            if (!gestation) {
+                day += 1;
+            }
+        }
+    } else {
+        if (nMonth &gt; bMonth || nYear &gt; bYear) {
+            day += (mothDay - bDay + nDay);
+            if (!gestation) {
+                day += 1;
+            }
+        }
+    }
+
+    if (day &gt; 0) {
+        if (!gestation) {
+            birth += (day + &quot;天&quot;);
+        } else {
+            return &quot;宝宝出生&quot; + day + &quot;天前&quot;;
+        }
+    }
+
+    return birth;
+}
+
+public static boolean isRunYear(int year) {
+    return ((year % 4 == 0) &amp;&amp; (year % 100 != 0)) || (year % 400 == 0);
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/Jackson解析toString-writeValueAsString-无响应/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/08/Jackson解析toString-writeValueAsString-无响应/" itemprop="url">Jackson解析toString(writeValueAsString)无响应</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:23:35+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>public class CountryEntity implements Serializable {
+    private String code;
+    private String country;
+    private String letter;
+
+    public CountryEntity() {
+
+    }
+
+    public CountryEntity(String code, String country) {
+        this.code = code;
+        this.country = country;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getLetter() {
+        return letter;
+    }
+
+    public void setLetter(String letter) {
+        this.letter = letter;
+    }
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/android-xml解析区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/08/android-xml解析区别/" itemprop="url">android xml解析区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:22:44+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>转载（收藏）:<a href="">http://blog.csdn.net/liuhe688/article/details/6415593</a></p>
+<p>SAX解析：simple api for xml</p>
+<p>优点：解析速度快，占用内存少。</p>
+<p>核心：事件处理模式，主要是围绕事件源和时间处理器来工作的。</p>
+<p>当事件源产生事件后，调用事件处理器相应的处理方法，一个事件就可以得到处理。在事件源调用事件处理器中特定方法的时候，还要传递给事件处理器相应事件的状态信息，这样事件处理器才能够根据提供的事件信息来决定自己的行为。</p>
+<p>DOM解析：基于树形结构的节点和信息片段的集合</p>
+<p>优点：检索和更新效率会更高</p>
+<p>缺点：对于特别大的文档，解析和加载整个文档将会很耗资源</p>
+<p>允许开发人员使用DOM API遍历XML树、检索所需数据。分析该结构通常需要加载整个文档和构造树形结构，然后才可以检索和更新节点信息。</p>
+<p>PULL解析：和SAX类似，都是基于事件的模式。</p>
+<p>优点：PULL解析器小巧轻便，解析速度快，简单易用</p>
+<p>不同SAX的是，在PULL解析过程中，我们需要自己获取产生的事件然后做相应的操作，而不像SAX那样由处理器触发一种事件的方法，执行我们的代码。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/git简单教程及删除空文件夹/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/08/git简单教程及删除空文件夹/" itemprop="url">git简单教程及删除空文件夹</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:21:27+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.git简单教程：</p>
+<p><a href="">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></p>
+<p>2.git删除空文件夹</p>
+<p><a href="">http://blog.csdn.net/skykingf/article/details/44078837</a></p>
+<p>使用git rm -rf dir 命令删除非空目录之后，本地还是会有空的目录存在，这时候空目录已经是untracked状态了。</p>
+<p>解决办法是再删除掉untracked状态的目录，命令如下</p>
+<p>git clean -fd<br>执行以上命令后，本地的空目录就没有了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/diamond-types-are-not-supported-at-this-language-level/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/08/diamond-types-are-not-supported-at-this-language-level/" itemprop="url">diamond types are not supported at this language level</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:17:38+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>stackoverflow:In File Menu → Project Structure → Project, change Project Language Level to 8.0 - Lambdas, type annotations etc.</p>
+<p>转载:<a href="">http://demo.netfoucs.com/aliaooooo/article/details/42536295</a></p>
+<p><img src="http://img.blog.csdn.net/20151020104105059?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/cannot-resolve-symbol/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/08/cannot-resolve-symbol/" itemprop="url">cannot resolve symbol 'XXXX'</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:16:41+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>情况:这个提示不影响编译，程序也正常运行，但是如果你直接点击该类或者文件找不到该文件，如果要打开的话，必须在程序找到该Java文件然后双击才能打开。</p>
+<p>结论:是缓存的问题。</p>
+<p>android studio 的解决方法:</p>
+<p>方法1.”Build “ -&gt; “Clean project”</p>
+<p>方法 2.”Tools” -&gt; “Android” -&gt; “Sync Project with Gradle Files”</p>
+<p>方法3. updated your SDK manager.</p>
+<p>intellij idea 的解决方法：</p>
+<p>File – Invalidate Caches 然后会提示你重启intellij ，你重启后，就好了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/解决默认打开浏览器的ActivityNotFoundException异常/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -303,7 +1189,7 @@
       
         
           
-            <p><code>private void toUri(String url){
+            <pre><code>private void toUri(String url){
         //设置浏览器
         try {
             Intent intent = new Intent();
@@ -316,8 +1202,8 @@
             shortcutIntent.setClassName(&quot;com.android.browser&quot;, &quot;com.android.browser.BrowserActivity&quot;);
             startActivity(shortcutIntent);
         }
-    }</code></p>
-
+    }
+</code></pre>
           
         
       
@@ -438,84 +1324,92 @@
           
             <p>有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串</p>
 <p>1.long字符串转换成yyyy-MM-dd HH:mm:ss 格式输出</p>
-<p>/**</p>
-<pre><code> * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss
- * @return
- */
-public static String  longToStrng(){
-    String time=&quot;1256006105375&quot;;//long型转换成的字符串
-    Date date= new Date(Long.parseLong(time.trim()));
-    SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-    String dateString = formatter.format(date);
-    System.out.println(&quot;TIME:::&quot;+dateString);
-    return dateString;
-}
+<pre><code>/**
+     * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss
+     * @return
+     */
+    public static String  longToStrng(){
+        String time=&quot;1256006105375&quot;;//long型转换成的字符串
+        Date date= new Date(Long.parseLong(time.trim()));
+        SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        String dateString = formatter.format(date);
+        System.out.println(&quot;TIME:::&quot;+dateString);
+        return dateString;
+    }
 </code></pre><p>2.字符串转换成时间</p>
-<p>/**</p>
-<pre><code> * 将yyyy-MM-dd HH:mm:ss 时间格式字符串转化成时间
- * @return
- */
-public static Date StringToDate(){
-    String time=&quot;2009-10-21 10:35:05&quot;;//时间格式的字符串
-    SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-    Date s=null;
-    try {
-         s= formatter.parse(time);
-    } catch (ParseException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+<pre><code>/**
+     * 将yyyy-MM-dd HH:mm:ss 时间格式字符串转化成时间
+     * @return
+     */
+    public static Date StringToDate(){
+        String time=&quot;2009-10-21 10:35:05&quot;;//时间格式的字符串
+        SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        Date s=null;
+        try {
+             s= formatter.parse(time);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println(&quot;TIME:::&quot;+s);
+        return s;
     }
-    System.out.println(&quot;TIME:::&quot;+s);
-    return s;
-}
 </code></pre><p>3 取得当前系统时间 返回 yyyy-MM-dd HH:mm:ss字符串</p>
-<p>/**</p>
-<pre><code>   * 获取现在时间
-   *
-   * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
-   */
-public static String getStringDate() {
-   Date currentTime = new Date();
-   SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-   String dateString = formatter.format(currentTime);
-   System.out.println(&quot;TIME:::&quot;+dateString);
-   return dateString;
-}
-</code></pre><p>4.取得当前系统时间 返回 HH:mm:ss字符串</p>
-<p>/**</p>
-<pre><code>   * 获取时间 小时:分;秒 HH:mm:ss
-   *
-   * @return
-   */
-public static String getTimeShort() {
-   SimpleDateFormat formatter = new SimpleDateFormat(&quot;HH:mm:ss&quot;);
-   Date currentTime = new Date();
-   String dateString = formatter.format(currentTime);
-   System.out.println(&quot;TIME:::&quot;+dateString);
-   return dateString;
-}
-</code></pre><p> 5.将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出</p>
-<p>/**</p>
-<pre><code> * 将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出
- * @return
- */
-public static String strToDatestr() {
-    String ssss = &quot;20090402103531&quot;;
-    SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;);
-    SimpleDateFormat sdf2 = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-    String sss = null;
-    try {
-        sss = sdf2.format(sdf.parse(ssss));
-        System.out.println(&quot;result&quot; + sss);
-    } catch (ParseException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
+<pre><code>/**
+       * 获取现在时间
+       *
+       * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
+       */
+    public static String getStringDate() {
+       Date currentTime = new Date();
+       SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+       String dateString = formatter.format(currentTime);
+       System.out.println(&quot;TIME:::&quot;+dateString);
+       return dateString;
     }
-    return sss;
-}
+</code></pre><p>4.取得当前系统时间 返回 HH:mm:ss字符串</p>
+<pre><code>/**
+       * 获取时间 小时:分;秒 HH:mm:ss
+       *
+       * @return
+       */
+    public static String getTimeShort() {
+       SimpleDateFormat formatter = new SimpleDateFormat(&quot;HH:mm:ss&quot;);
+       Date currentTime = new Date();
+       String dateString = formatter.format(currentTime);
+       System.out.println(&quot;TIME:::&quot;+dateString);
+       return dateString;
+    }
+</code></pre><p> 5.将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出</p>
+<pre><code>/**
+     * 将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出
+     * @return
+     */
+    public static String strToDatestr() {
+        String ssss = &quot;20090402103531&quot;;
+        SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;);
+        SimpleDateFormat sdf2 = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        String sss = null;
+        try {
+            sss = sdf2.format(sdf.parse(ssss));
+            System.out.println(&quot;result&quot; + sss);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return sss;
+    }
 </code></pre><p>6.将倒计时时间90179转换成”XX 天 XX小时 XX分钟 XX秒”形式输出</p>
-<p> public static String surplusLongToStrng(){<br>            long  between=90179;<br>             long day1=between/(24<em>3600);<br>           long hour1=between%(24</em>3600)/3600;<br>           long minute1=between%3600/60;<br>           long second1=between%60;<br>           System.out.println(“”+day1+”天”+hour1+”小时”+minute1+”分”+second1+”秒”);<br>           return “”+day1+”天”+hour1+”小时”+minute1+”分”+second1+”秒”;<br>      }</p>
-<p>转载出处:<a href="">http://wwwzhouhui.iteye.com/blog/513781</a></p>
+<pre><code>public static String surplusLongToStrng(){
+          long  between=90179;
+          long day1=between/(24*3600);
+          long hour1=between%(24*3600)/3600;
+          long minute1=between%3600/60;
+          long second1=between%60;
+          System.out.println(&quot;&quot;+day1+&quot;天&quot;+hour1+&quot;小时&quot;+minute1+&quot;分&quot;+second1+&quot;秒&quot;);
+          return &quot;&quot;+day1+&quot;天&quot;+hour1+&quot;小时&quot;+minute1+&quot;分&quot;+second1+&quot;秒&quot;;
+     }
+</code></pre><p>转载出处:<a href="">http://wwwzhouhui.iteye.com/blog/513781</a></p>
 
           
         
@@ -636,135 +1530,20 @@ public static String strToDatestr() {
         
           
             <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)</p>
-<p>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);<br>imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);</p>
-<p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
-<p>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);<br>imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);</p>
-<p>imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘</p>
-<p>3、调用隐藏系统默认的输入法</p>
-<p>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)</p>
-<p>4、获取输入法打开的状态</p>
-<p>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);<br>boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开</p>
-<p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+</code></pre><p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
 
-          
-        
-      
-    </div>
-    
-    
-    
+imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
+</code></pre><p>3、调用隐藏系统默认的输入法</p>
+<pre><code>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)
+</code></pre><p>4、获取输入法打开的状态</p>
+<pre><code>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
+</code></pre><p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ken">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chenxianglin' Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/05/test/" itemprop="url">test</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T17:32:36+08:00">
-                2018-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
           
         
       
@@ -919,137 +1698,13 @@ public static String strToDatestr() {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ken">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chenxianglin' Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/05/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T11:37:50+08:00">
-                2018-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1097,7 +1752,7 @@ public static String strToDatestr() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

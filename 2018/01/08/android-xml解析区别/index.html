@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="description" content="转载（收藏）:http://blog.csdn.net/liuhe688/article/details/6415593 SAX解析：simple api for xml 优点：解析速度快，占用内存少。 核心：事件处理模式，主要是围绕事件源和时间处理器来工作的。 当事件源产生事件后，调用事件处理器相应的处理方法，一个事件就可以得到处理。在事件源调用事件处理器中特定方法的时候，还要传递给事件处理器相">
 <meta property="og:type" content="article">
-<meta property="og:title" content="控制键盘的隐藏与现实">
-<meta property="og:url" content="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/index.html">
+<meta property="og:title" content="android xml解析区别">
+<meta property="og:url" content="http://yoursite.com/2018/01/08/android-xml解析区别/index.html">
 <meta property="og:site_name" content="Chenxianglin&#39; Blog">
-<meta property="og:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta property="og:description" content="转载（收藏）:http://blog.csdn.net/liuhe688/article/details/6415593 SAX解析：simple api for xml 优点：解析速度快，占用内存少。 核心：事件处理模式，主要是围绕事件源和时间处理器来工作的。 当事件源产生事件后，调用事件处理器相应的处理方法，一个事件就可以得到处理。在事件源调用事件处理器中特定方法的时候，还要传递给事件处理器相">
 <meta property="og:locale" content="zh-Cn">
-<meta property="og:updated_time" content="2018-01-08T09:26:11.131Z">
+<meta property="og:updated_time" content="2018-01-08T09:23:14.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="控制键盘的隐藏与现实">
-<meta name="twitter:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="twitter:title" content="android xml解析区别">
+<meta name="twitter:description" content="转载（收藏）:http://blog.csdn.net/liuhe688/article/details/6415593 SAX解析：simple api for xml 优点：解析速度快，占用内存少。 核心：事件处理模式，主要是围绕事件源和时间处理器来工作的。 当事件源产生事件后，调用事件处理器相应的处理方法，一个事件就可以得到处理。在事件源调用事件处理器中特定方法的时候，还要传递给事件处理器相">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/08/android-xml解析区别/"/>
 
 
 
 
 
-  <title>控制键盘的隐藏与现实 | Chenxianglin' Blog</title>
+  <title>android xml解析区别 | Chenxianglin' Blog</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/android-xml解析区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ken">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">控制键盘的隐藏与现实</h1>
+          <h1 class="post-title" itemprop="name headline">android xml解析区别</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:04:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:22:44+08:00">
                 2018-01-08
               </time>
             
@@ -299,20 +299,18 @@
       
 
       
-        <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-</code></pre><p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
-
-imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
-</code></pre><p>3、调用隐藏系统默认的输入法</p>
-<pre><code>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)
-</code></pre><p>4、获取输入法打开的状态</p>
-<pre><code>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
-</code></pre><p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
+        <p>转载（收藏）:<a href="">http://blog.csdn.net/liuhe688/article/details/6415593</a></p>
+<p>SAX解析：simple api for xml</p>
+<p>优点：解析速度快，占用内存少。</p>
+<p>核心：事件处理模式，主要是围绕事件源和时间处理器来工作的。</p>
+<p>当事件源产生事件后，调用事件处理器相应的处理方法，一个事件就可以得到处理。在事件源调用事件处理器中特定方法的时候，还要传递给事件处理器相应事件的状态信息，这样事件处理器才能够根据提供的事件信息来决定自己的行为。</p>
+<p>DOM解析：基于树形结构的节点和信息片段的集合</p>
+<p>优点：检索和更新效率会更高</p>
+<p>缺点：对于特别大的文档，解析和加载整个文档将会很耗资源</p>
+<p>允许开发人员使用DOM API遍历XML树、检索所需数据。分析该结构通常需要加载整个文档和构造树形结构，然后才可以检索和更新节点信息。</p>
+<p>PULL解析：和SAX类似，都是基于事件的模式。</p>
+<p>优点：PULL解析器小巧轻便，解析速度快，简单易用</p>
+<p>不同SAX的是，在PULL解析过程中，我们需要自己获取产生的事件然后做相应的操作，而不像SAX那样由处理器触发一种事件的方法，执行我们的代码。</p>
 
       
     </div>
@@ -337,8 +335,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/这是一个美好的开始/" rel="next" title="这是一个美好的开始">
-                <i class="fa fa-chevron-left"></i> 这是一个美好的开始
+              <a href="/2018/01/08/git简单教程及删除空文件夹/" rel="next" title="git简单教程及删除空文件夹">
+                <i class="fa fa-chevron-left"></i> git简单教程及删除空文件夹
               </a>
             
           </div>
@@ -347,8 +345,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/08/时间转换/" rel="prev" title="时间转换">
-                时间转换 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/08/Jackson解析toString-writeValueAsString-无响应/" rel="prev" title="Jackson解析toString(writeValueAsString)无响应">
+                Jackson解析toString(writeValueAsString)无响应 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

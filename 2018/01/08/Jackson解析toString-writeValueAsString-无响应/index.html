@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="description" content="public class CountryEntity implements Serializable {     private String code;     private String country;     private String letter;      public CountryEntity() {      }      public CountryEntity(Stri">
 <meta property="og:type" content="article">
-<meta property="og:title" content="控制键盘的隐藏与现实">
-<meta property="og:url" content="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/index.html">
+<meta property="og:title" content="Jackson解析toString(writeValueAsString)无响应">
+<meta property="og:url" content="http://yoursite.com/2018/01/08/Jackson解析toString-writeValueAsString-无响应/index.html">
 <meta property="og:site_name" content="Chenxianglin&#39; Blog">
-<meta property="og:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta property="og:description" content="public class CountryEntity implements Serializable {     private String code;     private String country;     private String letter;      public CountryEntity() {      }      public CountryEntity(Stri">
 <meta property="og:locale" content="zh-Cn">
-<meta property="og:updated_time" content="2018-01-08T09:26:11.131Z">
+<meta property="og:updated_time" content="2018-01-08T09:24:16.749Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="控制键盘的隐藏与现实">
-<meta name="twitter:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示) InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS); 2、方法二（view为接受软键">
+<meta name="twitter:title" content="Jackson解析toString(writeValueAsString)无响应">
+<meta name="twitter:description" content="public class CountryEntity implements Serializable {     private String code;     private String country;     private String letter;      public CountryEntity() {      }      public CountryEntity(Stri">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/08/Jackson解析toString-writeValueAsString-无响应/"/>
 
 
 
 
 
-  <title>控制键盘的隐藏与现实 | Chenxianglin' Blog</title>
+  <title>Jackson解析toString(writeValueAsString)无响应 | Chenxianglin' Blog</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/Jackson解析toString-writeValueAsString-无响应/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ken">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">控制键盘的隐藏与现实</h1>
+          <h1 class="post-title" itemprop="name headline">Jackson解析toString(writeValueAsString)无响应</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:04:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:23:35+08:00">
                 2018-01-08
               </time>
             
@@ -299,21 +299,45 @@
       
 
       
-        <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-</code></pre><p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
+        <pre><code>public class CountryEntity implements Serializable {
+    private String code;
+    private String country;
+    private String letter;
 
-imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
-</code></pre><p>3、调用隐藏系统默认的输入法</p>
-<pre><code>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)
-</code></pre><p>4、获取输入法打开的状态</p>
-<pre><code>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
-</code></pre><p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
+    public CountryEntity() {
 
+    }
+
+    public CountryEntity(String code, String country) {
+        this.code = code;
+        this.country = country;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getLetter() {
+        return letter;
+    }
+
+    public void setLetter(String letter) {
+        this.letter = letter;
+    }
+}
+</code></pre>
       
     </div>
     
@@ -337,8 +361,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/这是一个美好的开始/" rel="next" title="这是一个美好的开始">
-                <i class="fa fa-chevron-left"></i> 这是一个美好的开始
+              <a href="/2018/01/08/android-xml解析区别/" rel="next" title="android xml解析区别">
+                <i class="fa fa-chevron-left"></i> android xml解析区别
               </a>
             
           </div>
@@ -347,8 +371,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/08/时间转换/" rel="prev" title="时间转换">
-                时间转换 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/08/生日计算（距某个时间的年月日，前-后）/" rel="prev" title="生日计算（距某个时间的年月日，前/后）">
+                生日计算（距某个时间的年月日，前/后） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
