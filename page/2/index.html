@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -218,6 +218,139 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/08/控制键盘的隐藏与现实/" itemprop="url">控制键盘的隐藏与现实</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T17:04:25+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)</p>
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+</code></pre><p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
+
+imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
+</code></pre><p>3、调用隐藏系统默认的输入法</p>
+<pre><code>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)
+</code></pre><p>4、获取输入法打开的状态</p>
+<pre><code>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
+</code></pre><p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -261,7 +394,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T17:18:45+08:00">
                 2018-01-05
@@ -393,8 +526,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -446,7 +579,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
