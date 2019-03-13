@@ -341,97 +341,14 @@
 
       
         
-          
-            <p>有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串</p>
-<p>1.long字符串转换成yyyy-MM-dd HH:mm:ss 格式输出</p>
-<pre><code>/**
-     * 将长时间格式字符串转换为字符串 yyyy-MM-dd HH:mm:ss
-     * @return
-     */
-    public static String  longToStrng(){
-        String time=&quot;1256006105375&quot;;//long型转换成的字符串
-        Date date= new Date(Long.parseLong(time.trim()));
-        SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-        String dateString = formatter.format(date);
-        System.out.println(&quot;TIME:::&quot;+dateString);
-        return dateString;
-    }
-</code></pre><p>2.字符串转换成时间</p>
-<pre><code>/**
-     * 将yyyy-MM-dd HH:mm:ss 时间格式字符串转化成时间
-     * @return
-     */
-    public static Date StringToDate(){
-        String time=&quot;2009-10-21 10:35:05&quot;;//时间格式的字符串
-        SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-        Date s=null;
-        try {
-             s= formatter.parse(time);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        System.out.println(&quot;TIME:::&quot;+s);
-        return s;
-    }
-</code></pre><p>3 取得当前系统时间 返回 yyyy-MM-dd HH:mm:ss字符串</p>
-<pre><code>/**
-       * 获取现在时间
-       *
-       * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
-       */
-    public static String getStringDate() {
-       Date currentTime = new Date();
-       SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-       String dateString = formatter.format(currentTime);
-       System.out.println(&quot;TIME:::&quot;+dateString);
-       return dateString;
-    }
-</code></pre><p>4.取得当前系统时间 返回 HH:mm:ss字符串</p>
-<pre><code>/**
-       * 获取时间 小时:分;秒 HH:mm:ss
-       *
-       * @return
-       */
-    public static String getTimeShort() {
-       SimpleDateFormat formatter = new SimpleDateFormat(&quot;HH:mm:ss&quot;);
-       Date currentTime = new Date();
-       String dateString = formatter.format(currentTime);
-       System.out.println(&quot;TIME:::&quot;+dateString);
-       return dateString;
-    }
-</code></pre><p> 5.将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出</p>
-<pre><code>/**
-     * 将20090402103531 转换成 yyyy-MM-dd HH:mm:ss形式输出
-     * @return
-     */
-    public static String strToDatestr() {
-        String ssss = &quot;20090402103531&quot;;
-        SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;);
-        SimpleDateFormat sdf2 = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-        String sss = null;
-        try {
-            sss = sdf2.format(sdf.parse(ssss));
-            System.out.println(&quot;result&quot; + sss);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return sss;
-    }
-</code></pre><p>6.将倒计时时间90179转换成”XX 天 XX小时 XX分钟 XX秒”形式输出</p>
-<pre><code>public static String surplusLongToStrng(){
-          long  between=90179;
-          long day1=between/(24*3600);
-          long hour1=between%(24*3600)/3600;
-          long minute1=between%3600/60;
-          long second1=between%60;
-          System.out.println(&quot;&quot;+day1+&quot;天&quot;+hour1+&quot;小时&quot;+minute1+&quot;分&quot;+second1+&quot;秒&quot;);
-          return &quot;&quot;+day1+&quot;天&quot;+hour1+&quot;小时&quot;+minute1+&quot;分&quot;+second1+&quot;秒&quot;;
-     }
-</code></pre><p>转载出处:<a href="">http://wwwzhouhui.iteye.com/blog/513781</a></p>
-
-          
+          <p>有时候经常用到JAVA 时间转换 如 字符串转换成时间，时间转换成字符串<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/08/时间转换/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -579,23 +496,14 @@
 
       
         
-          
-            <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-</code></pre><p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
-
-imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
-</code></pre><p>3、调用隐藏系统默认的输入法</p>
-<pre><code>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)
-</code></pre><p>4、获取输入法打开的状态</p>
-<pre><code>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
-</code></pre><p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
-
-          
+          <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/08/控制键盘的隐藏与现实/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -743,10 +651,14 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
 
       
         
-          
-            <p><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=777343979,2436872658&amp;fm=27&amp;gp=0.jpg" alt="img1"><br><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3095288989,2477461429&amp;fm=200&amp;gp=0.jpg" alt="img2"></p>
-
-          
+          <p>第一条事例<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/05/这是一个美好的开始/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -842,6 +754,15 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
