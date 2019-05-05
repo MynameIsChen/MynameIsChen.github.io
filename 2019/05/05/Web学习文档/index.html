@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="代码建议所有最外层布局设置一个唯一id 所有子结构通过id+子结构class/id查找多人协作时尽量规文件创建等命名规范（目前工商里命名规范杂乱无章）列表类的强制使用假请求$.get(‘json文件路径’,function(data){//数据处理}); WebStorm局域网手机真机调试1.打开webstorm–&amp;gt;Preferences–&amp;gt;Build,Execution,Deploy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chenxianglin&#39; Blog">
+<meta property="og:url" content="http://yoursite.com/2019/05/05/Web学习文档/index.html">
+<meta property="og:site_name" content="Chenxianglin&#39; Blog">
+<meta property="og:description" content="代码建议所有最外层布局设置一个唯一id 所有子结构通过id+子结构class/id查找多人协作时尽量规文件创建等命名规范（目前工商里命名规范杂乱无章）列表类的强制使用假请求$.get(‘json文件路径’,function(data){//数据处理}); WebStorm局域网手机真机调试1.打开webstorm–&amp;gt;Preferences–&amp;gt;Build,Execution,Deploy">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://uploader.shimo.im/f/ptg2cxY69KA63eBu.png!thumbnail">
+<meta property="og:updated_time" content="2019-05-05T06:05:27.073Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chenxianglin&#39; Blog">
+<meta name="twitter:description" content="代码建议所有最外层布局设置一个唯一id 所有子结构通过id+子结构class/id查找多人协作时尽量规文件创建等命名规范（目前工商里命名规范杂乱无章）列表类的强制使用假请求$.get(‘json文件路径’,function(data){//数据处理}); WebStorm局域网手机真机调试1.打开webstorm–&amp;gt;Preferences–&amp;gt;Build,Execution,Deploy">
+<meta name="twitter:image" content="https://uploader.shimo.im/f/ptg2cxY69KA63eBu.png!thumbnail">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/05/Web学习文档/"/>
+
+
+
+
+
+  <title> | Chenxianglin' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chenxianglin' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/Web学习文档/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T14:05:27+08:00">
+                2019-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="代码建议"><a href="#代码建议" class="headerlink" title="代码建议"></a>代码建议</h2><p>所有最外层布局设置一个唯一id 所有子结构通过id+子结构class/id查找<br>多人协作时尽量规文件创建等命名规范（目前工商里命名规范杂乱无章）<br>列表类的强制使用假请求<br>$.get(‘json文件路径’,function(data){<br>//数据处理<br>});</p>
+<h2 id="WebStorm局域网手机真机调试"><a href="#WebStorm局域网手机真机调试" class="headerlink" title="WebStorm局域网手机真机调试"></a>WebStorm局域网手机真机调试</h2><p>1.打开webstorm–&gt;Preferences–&gt;Build,Execution,Deployment–&gt;Debugger<br>2.在Built-in server中配置Port为没有占用的端口号，勾选里面的俩个选项(Can accept external connections; Allow unsigned requests)<br>3.在Deployment照片你高点击+号，设置type为Local or mounted folder<br>a.name:自定义；<br>b.type:Local or mounted folder；<br>c.Upload/download project files: Folder:你项目所在父级路径(注意：是父级路径)；<br>d.Browse files on server:Web server root URL:<a href="http://ip" target="_blank" rel="noopener">http://ip</a>地址:debugger中设置的port端口号，这个域名是局域网，也是隶属于同一个路由发射出来的网络所分配的ip地址；<br>4.匹配路径设置：点击Mappings: Local path:你项目所在父级路径(注意：是父级路径)；<br>5.设置完成，点击apply，ok，在项目中使用浏览器打开即可，手机输入地址即可产看</p>
+<h2 id="常见配置"><a href="#常见配置" class="headerlink" title="常见配置"></a><strong>常见配置</strong></h2><p>1.元素有外框则设置：outline:none<br>2.button外有灰色边框设置：border none<br>3.设置元素下阴影：border-bottom: 2px solid #cd3023;<br>4.设置元素阴影效果：box-shadow: 0 1px 4px 0 #F953ff;<br>5.引用JS设置穿透方法设置event.stopPropagation(); 方法中需配置event参数<br>6.首页底部滑动不能至底部(部分手机有底部导航，如果布局为自动扩展)，配置bottom:0，元素配置overflow：scroll<br>7.base的css相同配置不要copy到自己的css中，可以在自己的css中复写</p>
+<h2 id="moz-、-ms、-webkit什么意思"><a href="#moz-、-ms、-webkit什么意思" class="headerlink" title="-moz 、-ms、-webkit什么意思"></a><strong>-moz 、-ms、-webkit什么意思</strong></h2><ul>
+<li>1、-moz代表firefox浏览器私有属性</li>
+<li>2、-ms代表<a href="https://www.baidu.com/s?wd=ie%E6%B5%8F%E8%A7%88%E5%99%A8&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">ie浏览器</a>私有属性</li>
+<li>3、-webkit代表safari、chrome私有属性</li>
+<li>这些是为了兼容老版本的写法，比较新版本的浏览器都支持直接写：border-radius。</li>
+<li>现在比较流行的一个概念就是：不太关键的样式，可以不考虑兼容，比如你说的圆角，并不影响内容的显示，如果客户浏览器太旧，就让他看到旧的方形效果就是，一定要看到新效果，只能建议客户升级浏览器。</li>
+</ul>
+<h2 id="swiper与scroll-view嵌套scroll-view不能滑动"><a href="#swiper与scroll-view嵌套scroll-view不能滑动" class="headerlink" title="swiper与scroll-view嵌套scroll-view不能滑动"></a>swiper与scroll-view嵌套scroll-view不能滑动</h2><p>1.swiper与scroll-view之间的组件设定高度<br>2.scroll-view高度《不配置》<br>3.swiper-item设置overflow:scroll</p>
+<h2 id="button去掉默认外框"><a href="#button去掉默认外框" class="headerlink" title="button去掉默认外框"></a>button去掉默认外框</h2><p>button::after {<br>  border: 0;<br>}<br>或者<br>button[class=”className”]::after {<br>  border: 0;<br>}</p>
+<h2 id="Undefined-index-openid"><a href="#Undefined-index-openid" class="headerlink" title="Undefined index: openid"></a>Undefined index: openid</h2><p>原因：之所以出现这个错误，是因为 getAccessTokenResponse 获取 access_token 会同时设置 openid，所以一旦  code 是错误，或者当 appid 、secret 是错误，就获取不到数据 access_token，这就出现这个错误。<br>方法：检查token是否有误</p>
+<h2 id="showToast不设置icon"><a href="#showToast不设置icon" class="headerlink" title="showToast不设置icon"></a>showToast不设置icon</h2><p>wx.showToast({<br>      title: a,<br>      icon:’none’,<br>      duration: 5000<br>})</p>
+<h2 id="请求接口返回数据，返回时等待的问题"><a href="#请求接口返回数据，返回时等待的问题" class="headerlink" title="请求接口返回数据，返回时等待的问题"></a>请求接口返回数据，返回时等待的问题</h2><p>1.在接口中使用<br>if(this.XXXXXCallback){<br>          this.<br>XXXXXCallback(value);<br>}<br>2.在接收数据中使用<br>app.XXXXXCallback = value =&gt; {<br>        this.yourFuction(value);<br>}</p>
+<h2 id="微信小程序-“Undefined-index-openid”"><a href="#微信小程序-“Undefined-index-openid”" class="headerlink" title="微信小程序 “Undefined index: openid”"></a>微信小程序 “Undefined index: openid”</h2><p>清除登录缓存</p>
+<h2 id="wxParse-微信小程序富文本解析组件"><a href="#wxParse-微信小程序富文本解析组件" class="headerlink" title="wxParse-微信小程序富文本解析组件"></a>wxParse-微信小程序富文本解析组件</h2><p><a href="https://github.com/icindy/wxParse" target="_blank" rel="noopener">git地址：https://github.com/icindy/wxParse</a><br>简单介绍（其实git里已经很详细了）：<br><a href="https://www.cnblogs.com/llkbk/p/7910454.html" target="_blank" rel="noopener">https://www.cnblogs.com/llkbk/p/7910454.html</a><br><a href="https://www.jianshu.com/p/91fc07616030" target="_blank" rel="noopener">https://www.jianshu.com/p/91fc07616030</a></p>
+<h2 id="undefined的情况"><a href="#undefined的情况" class="headerlink" title="undefined的情况"></a>undefined的情况</h2><p>1.方法内嵌的情况，使用链式函数<br>2.名字不同<br>3.被赋值属性缺失</p>
+<h2 id="js字典遍历-获取key-value"><a href="#js字典遍历-获取key-value" class="headerlink" title="js字典遍历,获取key,value"></a>js字典遍历,获取key,value</h2><p>for(var key in dic){<br>var item = dic[key]<br>}</p>
+<h1 id="快速定位要修改的css样式"><a href="#快速定位要修改的css样式" class="headerlink" title="快速定位要修改的css样式"></a>快速定位要修改的css样式</h1><p><img src="https://uploader.shimo.im/f/ptg2cxY69KA63eBu.png!thumbnail" alt="图片"><br>选中要修改的控件,点击右侧路径,小程序可以快速定位该控件的所在位置.</p>
+<h1 id="绝对定位-子绝父相"><a href="#绝对定位-子绝父相" class="headerlink" title="绝对定位(子绝父相)"></a>绝对定位(子绝父相)</h1><p>一般使用子绝父相的定位方式,就是子类假如使用绝对定位,父类一般使用相对定位,否则子类会向外层一直找,直到找到相对定位的控件,否则会以windon作为参照来定位.</p>
+<h3 id="Component-is-not-found-in-path"><a href="#Component-is-not-found-in-path" class="headerlink" title="Component is not found in path"></a>Component is not found in path</h3><p>问题：Component is not found in path “pages/circle/XXX” (using by “pages/circle/circle”);onAppRoute Error: Component is not found in path “pages/circle/XXX”<br>1.检查.json文件中usingComponents的配置是否正确，<br>2.一般出现问题是配置错误，导致找不到错误路径的自定义组件<br>“usingComponents”: {<br>    “component-tag-name”: “path/to/the/custom/component”<br>  }</p>
+<h3 id="超出屏幕一定距离"><a href="#超出屏幕一定距离" class="headerlink" title="超出屏幕一定距离"></a>超出屏幕一定距离</h3><p>问题：width:100%,这时候设置margin会导致超出屏幕margin的距离<br>方案：父布局设置relative，子布局设置absolute，设置left/right</p>
+<h3 id="PC适配注意事项-使用chrome调试后再用Firefox检查"><a href="#PC适配注意事项-使用chrome调试后再用Firefox检查" class="headerlink" title="PC适配注意事项(使用chrome调试后再用Firefox检查)"></a>PC适配注意事项(使用chrome调试后再用Firefox检查)</h3><p>1.字体在Firefox上最小是1px，chrome上最小是12px<br>2.有文字的区域不要使用固定高度<br>3.在固定高度的情况下尽量不要使用固定宽度，或者固定padding-left<right>/margin-left<right><br>4.多元素列表使用flex-warp，item及内子元素(若有元素的宽占比过大的情况下，如图片占比超过一半屏宽)<br>5.position:fixed的情况下注意向下或者向右超出</right></right></p>
+<h3 id="前端适配手机"><a href="#前端适配手机" class="headerlink" title="前端适配手机"></a>前端适配手机</h3><p>1.使用@media only screen and(max-width: 1024px) and(min-width:959px){}实现页面自适应布局时：1024px<strong>既适配于**</strong>PC<strong><strong>也适配于</strong></strong>手机**<br>建议：PC和手机写两套来适应。<br>2.使用rem时animation：transform移动距离很小，或者修改不生效<br>解决：可能-缓存问题，删除缓存<br>3.iPhone加载animation时css会在初始化就配置(产生的位移很小)<br>解决：使用addClass，setTimeout延时加载==等页面加载出来后在设置动画<br>4.chrome浏览器的响应式设计模式与真机不一样—&gt;使用Firefox即可<br>iPhone可以使用Safari的开发模式：Safari的开发模式-偏好-高级-底部勾选开发，工具栏-开发-进入响应式设计模式</p>
+<h3 id="JS判断是手机还是PC端"><a href="#JS判断是手机还是PC端" class="headerlink" title="JS判断是手机还是PC端"></a>JS判断是手机还是PC端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function IsPC() &#123;</span><br><span class="line">   var userAgentInfo = navigator.userAgent;</span><br><span class="line">   var Agents = [&quot;Android&quot;, &quot;iPhone&quot;,</span><br><span class="line">      &quot;SymbianOS&quot;, &quot;Windows Phone&quot;,</span><br><span class="line">      &quot;iPad&quot;, &quot;iPod&quot;];</span><br><span class="line">   var flag = true;</span><br><span class="line">   for (var v = 0; v &lt; Agents.length; v++) &#123;</span><br><span class="line">      if (userAgentInfo.indexOf(Agents[v]) &gt; 0) &#123;</span><br><span class="line">         flag = false;</span><br><span class="line">         break;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   return flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) &#123; //移动端</span><br><span class="line">    //TODO</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者navigator：<br>appCodeName:浏览器的代码名；appName：浏览器名称；appVersion：浏览器的平台和版本信息；cookieEnabled：浏览器中是否启用cookie的布尔值；platform：浏览器的操作系统平台：MacIntel、iPhone、Win32等；userAgent：客户机发送服务器的user-agent头部的值。<br>最后，根据需要定位window.location.href=”具体.html”</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/05/微信小程序学习过程问题集/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg"
+                alt="Ken" />
+            
+              <p class="site-author-name" itemprop="name">Ken</p>
+              <p class="site-description motion-element" itemprop="description">三月的风，四月的酒</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MynameIsChen" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=519061704&auto=1&height=66"></iframe>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码建议"><span class="nav-number">1.</span> <span class="nav-text">代码建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebStorm局域网手机真机调试"><span class="nav-number">2.</span> <span class="nav-text">WebStorm局域网手机真机调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见配置"><span class="nav-number">3.</span> <span class="nav-text">常见配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#moz-、-ms、-webkit什么意思"><span class="nav-number">4.</span> <span class="nav-text">-moz 、-ms、-webkit什么意思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swiper与scroll-view嵌套scroll-view不能滑动"><span class="nav-number">5.</span> <span class="nav-text">swiper与scroll-view嵌套scroll-view不能滑动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#button去掉默认外框"><span class="nav-number">6.</span> <span class="nav-text">button去掉默认外框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Undefined-index-openid"><span class="nav-number">7.</span> <span class="nav-text">Undefined index: openid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#showToast不设置icon"><span class="nav-number">8.</span> <span class="nav-text">showToast不设置icon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求接口返回数据，返回时等待的问题"><span class="nav-number">9.</span> <span class="nav-text">请求接口返回数据，返回时等待的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信小程序-“Undefined-index-openid”"><span class="nav-number">10.</span> <span class="nav-text">微信小程序 “Undefined index: openid”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wxParse-微信小程序富文本解析组件"><span class="nav-number">11.</span> <span class="nav-text">wxParse-微信小程序富文本解析组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined的情况"><span class="nav-number">12.</span> <span class="nav-text">undefined的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js字典遍历-获取key-value"><span class="nav-number">13.</span> <span class="nav-text">js字典遍历,获取key,value</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快速定位要修改的css样式"><span class="nav-number"></span> <span class="nav-text">快速定位要修改的css样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绝对定位-子绝父相"><span class="nav-number"></span> <span class="nav-text">绝对定位(子绝父相)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Component-is-not-found-in-path"><span class="nav-number">0.1.</span> <span class="nav-text">Component is not found in path</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超出屏幕一定距离"><span class="nav-number">0.2.</span> <span class="nav-text">超出屏幕一定距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PC适配注意事项-使用chrome调试后再用Firefox检查"><span class="nav-number">0.3.</span> <span class="nav-text">PC适配注意事项(使用chrome调试后再用Firefox检查)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端适配手机"><span class="nav-number">0.4.</span> <span class="nav-text">前端适配手机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS判断是手机还是PC端"><span class="nav-number">0.5.</span> <span class="nav-text">JS判断是手机还是PC端</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ken</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

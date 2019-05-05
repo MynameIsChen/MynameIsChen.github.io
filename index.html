@@ -230,6 +230,343 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/前端学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/05/前端学习记录/" itemprop="url">前端学习记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T14:09:42+08:00">
+                2019-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="代码建议"><a href="#代码建议" class="headerlink" title="代码建议"></a>代码建议</h2><p>所有最外层布局设置一个唯一id 所有子结构通过id+子结构class/id查找<br>多人协作时尽量规文件创建等命名规范（目前工商里命名规范杂乱无章）<br>列表类的强制使用假请求<br>$.get(‘json文件路径’,function(data){<br>//数据处理<br>});</p>
+<h2 id="WebStorm局域网手机真机调试"><a href="#WebStorm局域网手机真机调试" class="headerlink" title="WebStorm局域网手机真机调试"></a>WebStorm局域网手机真机调试</h2><p>1.打开webstorm–&gt;Preferences–&gt;Build,Execution,Deployment–&gt;Debugger<br>2.在Built-in server中配置Port为没有占用的端口号，勾选里面的俩个选项(Can accept external connections; Allow unsigned requests)<br>3.在Deployment照片你高点击+号，设置type为Local or mounted folder<br>a.name:自定义；<br>b.type:Local or mounted folder；<br>c.Upload/download project files: Folder:你项目所在父级路径(注意：是父级路径)；<br>d.Browse files on server:Web server root URL:<a href="http://ip" target="_blank" rel="noopener">http://ip</a>地址:debugger中设置的port端口号，这个域名是局域网，也是隶属于同一个路由发射出来的网络所分配的ip地址；<br>4.匹配路径设置：点击Mappings: Local path:你项目所在父级路径(注意：是父级路径)；<br>5.设置完成，点击apply，ok，在项目中使用浏览器打开即可，手机输入地址即可产看</p>
+<h2 id="常见配置"><a href="#常见配置" class="headerlink" title="常见配置"></a><strong>常见配置</strong></h2><p>1.元素有外框则设置：outline:none<br>2.button外有灰色边框设置：border none<br>3.设置元素下阴影：border-bottom: 2px solid #cd3023;<br>4.设置元素阴影效果：box-shadow: 0 1px 4px 0 #F953ff;<br>5.引用JS设置穿透方法设置event.stopPropagation(); 方法中需配置event参数<br>6.首页底部滑动不能至底部(部分手机有底部导航，如果布局为自动扩展)，配置bottom:0，元素配置overflow：scroll<br>7.base的css相同配置不要copy到自己的css中，可以在自己的css中复写</p>
+<h2 id="moz-、-ms、-webkit什么意思"><a href="#moz-、-ms、-webkit什么意思" class="headerlink" title="-moz 、-ms、-webkit什么意思"></a><strong>-moz 、-ms、-webkit什么意思</strong></h2><ul>
+<li>1、-moz代表firefox浏览器私有属性</li>
+<li>2、-ms代表<a href="https://www.baidu.com/s?wd=ie%E6%B5%8F%E8%A7%88%E5%99%A8&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">ie浏览器</a>私有属性</li>
+<li>3、-webkit代表safari、chrome私有属性</li>
+<li>这些是为了兼容老版本的写法，比较新版本的浏览器都支持直接写：border-radius。</li>
+<li>现在比较流行的一个概念就是：不太关键的样式，可以不考虑兼容，比如你说的圆角，并不影响内容的显示，如果客户浏览器太旧，就让他看到旧的方形效果就是，一定要看到新效果，只能建议客户升级浏览器。</li>
+</ul>
+<h2 id="swiper与scroll-view嵌套scroll-view不能滑动"><a href="#swiper与scroll-view嵌套scroll-view不能滑动" class="headerlink" title="swiper与scroll-view嵌套scroll-view不能滑动"></a>swiper与scroll-view嵌套scroll-view不能滑动</h2><p>1.swiper与scroll-view之间的组件设定高度<br>2.scroll-view高度《不配置》<br>3.swiper-item设置overflow:scroll</p>
+<h2 id="button去掉默认外框"><a href="#button去掉默认外框" class="headerlink" title="button去掉默认外框"></a>button去掉默认外框</h2><p>button::after {<br>  border: 0;<br>}<br>或者<br>button[class=”className”]::after {<br>  border: 0;<br>}</p>
+<h2 id="Undefined-index-openid"><a href="#Undefined-index-openid" class="headerlink" title="Undefined index: openid"></a>Undefined index: openid</h2><p>原因：之所以出现这个错误，是因为 getAccessTokenResponse 获取 access_token 会同时设置 openid，所以一旦  code 是错误，或者当 appid 、secret 是错误，就获取不到数据 access_token，这就出现这个错误。<br>方法：检查token是否有误</p>
+<h2 id="showToast不设置icon"><a href="#showToast不设置icon" class="headerlink" title="showToast不设置icon"></a>showToast不设置icon</h2><p>wx.showToast({<br>      title: a,<br>      icon:’none’,<br>      duration: 5000<br>})</p>
+<h2 id="请求接口返回数据，返回时等待的问题"><a href="#请求接口返回数据，返回时等待的问题" class="headerlink" title="请求接口返回数据，返回时等待的问题"></a>请求接口返回数据，返回时等待的问题</h2><p>1.在接口中使用<br>if(this.XXXXXCallback){<br>          this.<br>XXXXXCallback(value);<br>}<br>2.在接收数据中使用<br>app.XXXXXCallback = value =&gt; {<br>        this.yourFuction(value);<br>}</p>
+<h2 id="微信小程序-“Undefined-index-openid”"><a href="#微信小程序-“Undefined-index-openid”" class="headerlink" title="微信小程序 “Undefined index: openid”"></a>微信小程序 “Undefined index: openid”</h2><p>清除登录缓存</p>
+<h2 id="wxParse-微信小程序富文本解析组件"><a href="#wxParse-微信小程序富文本解析组件" class="headerlink" title="wxParse-微信小程序富文本解析组件"></a>wxParse-微信小程序富文本解析组件</h2><p><a href="https://github.com/icindy/wxParse" target="_blank" rel="noopener">git地址：https://github.com/icindy/wxParse</a><br>简单介绍（其实git里已经很详细了）：<br><a href="https://www.cnblogs.com/llkbk/p/7910454.html" target="_blank" rel="noopener">https://www.cnblogs.com/llkbk/p/7910454.html</a><br><a href="https://www.jianshu.com/p/91fc07616030" target="_blank" rel="noopener">https://www.jianshu.com/p/91fc07616030</a></p>
+<h2 id="undefined的情况"><a href="#undefined的情况" class="headerlink" title="undefined的情况"></a>undefined的情况</h2><p>1.方法内嵌的情况，使用链式函数<br>2.名字不同<br>3.被赋值属性缺失</p>
+<h2 id="js字典遍历-获取key-value"><a href="#js字典遍历-获取key-value" class="headerlink" title="js字典遍历,获取key,value"></a>js字典遍历,获取key,value</h2><p>for(var key in dic){<br>var item = dic[key]<br>}</p>
+<h1 id="快速定位要修改的css样式"><a href="#快速定位要修改的css样式" class="headerlink" title="快速定位要修改的css样式"></a>快速定位要修改的css样式</h1><p><img src="https://uploader.shimo.im/f/ptg2cxY69KA63eBu.png!thumbnail" alt="图片"><br>选中要修改的控件,点击右侧路径,小程序可以快速定位该控件的所在位置.</p>
+<h1 id="绝对定位-子绝父相"><a href="#绝对定位-子绝父相" class="headerlink" title="绝对定位(子绝父相)"></a>绝对定位(子绝父相)</h1><p>一般使用子绝父相的定位方式,就是子类假如使用绝对定位,父类一般使用相对定位,否则子类会向外层一直找,直到找到相对定位的控件,否则会以windon作为参照来定位.</p>
+<h3 id="Component-is-not-found-in-path"><a href="#Component-is-not-found-in-path" class="headerlink" title="Component is not found in path"></a>Component is not found in path</h3><p>问题：Component is not found in path “pages/circle/XXX” (using by “pages/circle/circle”);onAppRoute Error: Component is not found in path “pages/circle/XXX”<br>1.检查.json文件中usingComponents的配置是否正确，<br>2.一般出现问题是配置错误，导致找不到错误路径的自定义组件<br>“usingComponents”: {<br>    “component-tag-name”: “path/to/the/custom/component”<br>  }</p>
+<h3 id="超出屏幕一定距离"><a href="#超出屏幕一定距离" class="headerlink" title="超出屏幕一定距离"></a>超出屏幕一定距离</h3><p>问题：width:100%,这时候设置margin会导致超出屏幕margin的距离<br>方案：父布局设置relative，子布局设置absolute，设置left/right</p>
+<h3 id="PC适配注意事项-使用chrome调试后再用Firefox检查"><a href="#PC适配注意事项-使用chrome调试后再用Firefox检查" class="headerlink" title="PC适配注意事项(使用chrome调试后再用Firefox检查)"></a>PC适配注意事项(使用chrome调试后再用Firefox检查)</h3><p>1.字体在Firefox上最小是1px，chrome上最小是12px<br>2.有文字的区域不要使用固定高度<br>3.在固定高度的情况下尽量不要使用固定宽度，或者固定padding-left<right>/margin-left<right><br>4.多元素列表使用flex-warp，item及内子元素(若有元素的宽占比过大的情况下，如图片占比超过一半屏宽)<br>5.position:fixed的情况下注意向下或者向右超出</right></right></p>
+<h3 id="前端适配手机"><a href="#前端适配手机" class="headerlink" title="前端适配手机"></a>前端适配手机</h3><p>1.使用@media only screen and(max-width: 1024px) and(min-width:959px){}实现页面自适应布局时：1024px<strong>既适配于**</strong>PC<strong><strong>也适配于</strong></strong>手机**<br>建议：PC和手机写两套来适应。<br>2.使用rem时animation：transform移动距离很小，或者修改不生效<br>解决：可能-缓存问题，删除缓存<br>3.iPhone加载animation时css会在初始化就配置(产生的位移很小)<br>解决：使用addClass，setTimeout延时加载==等页面加载出来后在设置动画<br>4.chrome浏览器的响应式设计模式与真机不一样—&gt;使用Firefox即可<br>iPhone可以使用Safari的开发模式：Safari的开发模式-偏好-高级-底部勾选开发，工具栏-开发-进入响应式设计模式</p>
+<h3 id="JS判断是手机还是PC端"><a href="#JS判断是手机还是PC端" class="headerlink" title="JS判断是手机还是PC端"></a>JS判断是手机还是PC端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function IsPC() &#123;</span><br><span class="line">   var userAgentInfo = navigator.userAgent;</span><br><span class="line">   var Agents = [&quot;Android&quot;, &quot;iPhone&quot;,</span><br><span class="line">      &quot;SymbianOS&quot;, &quot;Windows Phone&quot;,</span><br><span class="line">      &quot;iPad&quot;, &quot;iPod&quot;];</span><br><span class="line">   var flag = true;</span><br><span class="line">   for (var v = 0; v &lt; Agents.length; v++) &#123;</span><br><span class="line">      if (userAgentInfo.indexOf(Agents[v]) &gt; 0) &#123;</span><br><span class="line">         flag = false;</span><br><span class="line">         break;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   return flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) &#123; //移动端</span><br><span class="line">    //TODO</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者navigator：<br>appCodeName:浏览器的代码名；appName：浏览器名称；appVersion：浏览器的平台和版本信息；cookieEnabled：浏览器中是否启用cookie的布尔值；platform：浏览器的操作系统平台：MacIntel、iPhone、Win32等；userAgent：客户机发送服务器的user-agent头部的值。<br>最后，根据需要定位window.location.href=”具体.html”</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/微信小程序学习问题集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ken">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenxianglin' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/05/微信小程序学习问题集/" itemprop="url">微信小程序学习问题集</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T14:08:54+08:00">
+                2019-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Q.使用Scroll-view上拉加载更多页，但是Scroll-view有一个问题 他不能加载下拉刷新和onPullDownRefresh有冲突<br>A.onReachBottom替换Scroll-view上拉加载 onReachBottom可以实现上拉加载更多页，也可以实现下拉刷新</p>
+<p>Q:小程序wxml文件导入其它模版文件路径问题<br>A:使用import导入需要使用绝对路径</p>
+<p>Q.问题：小程序有没有快速创建页面文件的方法？一个个的创建四种类型的文件实在太麻烦<strong>。</strong><br>A解决方法：非常具有极客精神的腾讯程序员，并没有显示给出一次创建四种类型页面文件的方法。他们很有创新精神的用了一种极为隐藏的方式实现了这个功能。具体方法为：<br>在app.json文件下pages数组里，添加一个页面的路径，如果这个路径指向的是一个不存在的文件，那么MINA框架会自动创建这个页面的四个文件。我们可以试一下，在app.json文件的pages数组里添加一项   “pages/orange/orange”，然后保存项目，会发生什么呢？用这种方式创建文件不仅快捷，而且页面文件会自动添加一些默认代码，防止小程序报以下两个Q&amp;A的错误。</p>
+<p><strong>问题：如何</strong>获取封装的方法？<br>解决方法：必须得提供一个供外部调用的方法才行。</p>
+<p>Q.callback is not a function;at api request success callback function<br>TypeError: callback is not a function<br>A:httpUtil请求工具类的请求参数是4个，调用的时候传了3个参数，回调callback调用的时候报错</p>
+<h1 id="Q-下拉刷新不回弹"><a href="#Q-下拉刷新不回弹" class="headerlink" title="Q.下拉刷新不回弹"></a>Q.下拉刷新不回弹</h1><p>A:解决办法：主动调用wx.stopPullDownRefresh</p>
+<p>Q.微信小程序截屏，调用API获取图片路径的时候返回路径为空的问题<br>canvasToTempFilePath: fail canvas is empty</p>
+<h1 id="Q-达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx-clip-修剪的方法，导致每次保存图片都是第一次保存的时候图片，"><a href="#Q-达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx-clip-修剪的方法，导致每次保存图片都是第一次保存的时候图片，" class="headerlink" title="Q.达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx.clip( )修剪的方法，导致每次保存图片都是第一次保存的时候图片，"></a>Q.达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx.clip( )修剪的方法，导致每次保存图片都是第一次保存的时候图片，</h1><p>A:解决办法：去掉ctx.clip( )方法</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/食道梗阻-海姆立克法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1457,316 +1794,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/cannot-resolve-symbol/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ken">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chenxianglin' Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/08/cannot-resolve-symbol/" itemprop="url">cannot resolve symbol 'XXXX'</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T17:16:41+08:00">
-                2018-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>情况:这个提示不影响编译，程序也正常运行，但是如果你直接点击该类或者文件找不到该文件，如果要打开的话，必须在程序找到该Java文件然后双击才能打开。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/08/cannot-resolve-symbol/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/解决默认打开浏览器的ActivityNotFoundException异常/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ken">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://c.hiphotos.baidu.com/image/h%3D300/sign=ba947ab9a44bd1131bcdb1326aaea488/7af40ad162d9f2d3252dba25a0ec8a136327cc38.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chenxianglin' Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/08/解决默认打开浏览器的ActivityNotFoundException异常/" itemprop="url">解决默认打开浏览器的ActivityNotFoundException异常</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T17:09:38+08:00">
-                2018-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>代码如下：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/08/解决默认打开浏览器的ActivityNotFoundException异常/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1821,7 +1848,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

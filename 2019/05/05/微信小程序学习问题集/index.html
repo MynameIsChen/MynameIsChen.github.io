@@ -77,17 +77,17 @@
 
 
 
-<meta name="description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)">
+<meta name="description" content="Q.使用Scroll-view上拉加载更多页，但是Scroll-view有一个问题 他不能加载下拉刷新和onPullDownRefresh有冲突A.onReachBottom替换Scroll-view上拉加载 onReachBottom可以实现上拉加载更多页，也可以实现下拉刷新 Q:小程序wxml文件导入其它模版文件路径问题A:使用import导入需要使用绝对路径 Q.问题：小程序有没有快速创建页">
 <meta property="og:type" content="article">
-<meta property="og:title" content="控制键盘的隐藏与现实">
-<meta property="og:url" content="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/index.html">
+<meta property="og:title" content="微信小程序学习问题集">
+<meta property="og:url" content="http://yoursite.com/2019/05/05/微信小程序学习问题集/index.html">
 <meta property="og:site_name" content="Chenxianglin&#39; Blog">
-<meta property="og:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)">
+<meta property="og:description" content="Q.使用Scroll-view上拉加载更多页，但是Scroll-view有一个问题 他不能加载下拉刷新和onPullDownRefresh有冲突A.onReachBottom替换Scroll-view上拉加载 onReachBottom可以实现上拉加载更多页，也可以实现下拉刷新 Q:小程序wxml文件导入其它模版文件路径问题A:使用import导入需要使用绝对路径 Q.问题：小程序有没有快速创建页">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-13T06:17:55.740Z">
+<meta property="og:updated_time" content="2019-05-05T06:09:20.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="控制键盘的隐藏与现实">
-<meta name="twitter:description" content="1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)">
+<meta name="twitter:title" content="微信小程序学习问题集">
+<meta name="twitter:description" content="Q.使用Scroll-view上拉加载更多页，但是Scroll-view有一个问题 他不能加载下拉刷新和onPullDownRefresh有冲突A.onReachBottom替换Scroll-view上拉加载 onReachBottom可以实现上拉加载更多页，也可以实现下拉刷新 Q:小程序wxml文件导入其它模版文件路径问题A:使用import导入需要使用绝对路径 Q.问题：小程序有没有快速创建页">
 
 
 
@@ -117,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/05/05/微信小程序学习问题集/"/>
 
 
 
 
 
-  <title>控制键盘的隐藏与现实 | Chenxianglin' Blog</title>
+  <title>微信小程序学习问题集 | Chenxianglin' Blog</title>
   
 
 
@@ -230,7 +230,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/控制键盘的隐藏与现实/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/微信小程序学习问题集/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ken">
@@ -247,7 +247,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">控制键盘的隐藏与现实</h1>
+          <h1 class="post-title" itemprop="name headline">微信小程序学习问题集</h1>
         
 
         <div class="post-meta">
@@ -259,8 +259,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T17:04:25+08:00">
-                2018-01-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T14:08:54+08:00">
+                2019-05-05
               </time>
             
 
@@ -328,18 +328,14 @@
       
 
       
-        <p>1、方法一(如果输入法在窗口上已经显示，则隐藏，反之则显示)<br><a id="more"></a><br>    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);<br>    imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);</p>
-<p>2、方法二（view为接受软键盘输入的视图，SHOW_FORCED表示强制显示）</p>
-<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
-
-imm.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
-</code></pre><p>3、调用隐藏系统默认的输入法</p>
-<pre><code>((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(WidgetSearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);  (WidgetSearchActivity是当前的Activity)
-</code></pre><p>4、获取输入法打开的状态</p>
-<pre><code>InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
-</code></pre><p>转载出处:<a href="">http://blog.csdn.net/h7870181/article/details/8332991</a></p>
+        <p>Q.使用Scroll-view上拉加载更多页，但是Scroll-view有一个问题 他不能加载下拉刷新和onPullDownRefresh有冲突<br>A.onReachBottom替换Scroll-view上拉加载 onReachBottom可以实现上拉加载更多页，也可以实现下拉刷新</p>
+<p>Q:小程序wxml文件导入其它模版文件路径问题<br>A:使用import导入需要使用绝对路径</p>
+<p>Q.问题：小程序有没有快速创建页面文件的方法？一个个的创建四种类型的文件实在太麻烦<strong>。</strong><br>A解决方法：非常具有极客精神的腾讯程序员，并没有显示给出一次创建四种类型页面文件的方法。他们很有创新精神的用了一种极为隐藏的方式实现了这个功能。具体方法为：<br>在app.json文件下pages数组里，添加一个页面的路径，如果这个路径指向的是一个不存在的文件，那么MINA框架会自动创建这个页面的四个文件。我们可以试一下，在app.json文件的pages数组里添加一项   “pages/orange/orange”，然后保存项目，会发生什么呢？用这种方式创建文件不仅快捷，而且页面文件会自动添加一些默认代码，防止小程序报以下两个Q&amp;A的错误。</p>
+<p><strong>问题：如何</strong>获取封装的方法？<br>解决方法：必须得提供一个供外部调用的方法才行。</p>
+<p>Q.callback is not a function;at api request success callback function<br>TypeError: callback is not a function<br>A:httpUtil请求工具类的请求参数是4个，调用的时候传了3个参数，回调callback调用的时候报错</p>
+<h1 id="Q-下拉刷新不回弹"><a href="#Q-下拉刷新不回弹" class="headerlink" title="Q.下拉刷新不回弹"></a>Q.下拉刷新不回弹</h1><p>A:解决办法：主动调用wx.stopPullDownRefresh</p>
+<p>Q.微信小程序截屏，调用API获取图片路径的时候返回路径为空的问题<br>canvasToTempFilePath: fail canvas is empty</p>
+<h1 id="Q-达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx-clip-修剪的方法，导致每次保存图片都是第一次保存的时候图片，"><a href="#Q-达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx-clip-修剪的方法，导致每次保存图片都是第一次保存的时候图片，" class="headerlink" title="Q.达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx.clip( )修剪的方法，导致每次保存图片都是第一次保存的时候图片，"></a>Q.达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx.clip( )修剪的方法，导致每次保存图片都是第一次保存的时候图片，</h1><p>A:解决办法：去掉ctx.clip( )方法</p>
 
       
     </div>
@@ -364,8 +360,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/这是一个美好的开始/" rel="next" title="这是一个美好的开始">
-                <i class="fa fa-chevron-left"></i> 这是一个美好的开始
+              <a href="/2019/03/13/食道梗阻-海姆立克法/" rel="next" title="食道梗阻--海姆立克法">
+                <i class="fa fa-chevron-left"></i> 食道梗阻--海姆立克法
               </a>
             
           </div>
@@ -374,8 +370,8 @@ boolean isOpen=imm.isActive();//isOpen若返回true，则表示输入法打开
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/08/时间转换/" rel="prev" title="时间转换">
-                时间转换 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/05/前端学习记录/" rel="prev" title="前端学习记录">
+                前端学习记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -454,8 +450,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -522,6 +527,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-下拉刷新不回弹"><span class="nav-number">1.</span> <span class="nav-text">Q.下拉刷新不回弹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx-clip-修剪的方法，导致每次保存图片都是第一次保存的时候图片，"><span class="nav-number">2.</span> <span class="nav-text">Q.达人步兑–凑步数swiper切换背景图，点击保存的时候，因为调用了ctx.clip( )修剪的方法，导致每次保存图片都是第一次保存的时候图片，</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
